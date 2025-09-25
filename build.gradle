@@ -42,12 +42,13 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
     // Slack API
-    implementation("com.slack.api:bolt-socket-mode:1.45.3")
+	implementation("com.slack.api:slack-api-client:1.45.4")
+    implementation("com.slack.api:bolt-socket-mode:1.45.4")
     implementation("javax.websocket:javax.websocket-api:1.1")
     implementation("org.glassfish.tyrus.bundles:tyrus-standalone-client:1.20")
-    implementation("com.slack.api:bolt:1.44.1")
-	implementation("com.slack.api:bolt-servlet:1.44.1")
-	implementation("com.slack.api:bolt-jetty:1.44.1")
+    implementation("com.slack.api:bolt:1.45.4")
+	implementation("com.slack.api:bolt-servlet:1.45.4")
+	implementation("com.slack.api:bolt-jetty:1.45.4")
 	implementation("org.slf4j:slf4j-simple:1.7.36")
     implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.7'
 }
