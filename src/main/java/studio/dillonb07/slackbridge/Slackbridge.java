@@ -1,6 +1,6 @@
 package studio.dillonb07.slackbridge;
 
-// import com.slack.api.methods.SlackApiException;
+import com.slack.api.methods.SlackApiException;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -62,7 +62,7 @@ public class Slackbridge implements ModInitializer {
             serverInstance = server;
             try {
                 sendSlackMessage(":white_check_mark: Server has started!");
-            } catch (IOException e) {
+            } catch (SlackApiException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
@@ -70,7 +70,7 @@ public class Slackbridge implements ModInitializer {
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
             try {
                 sendSlackMessage(":octagonal_sign: Server has stopped!");
-            } catch (IOException e) {
+            } catch (SlackApiException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
@@ -81,7 +81,7 @@ public class Slackbridge implements ModInitializer {
             try {
                 sendChatMessage(textContent, sender.getName().copyContentOnly().getLiteralString(), 
                         sender.getUuidAsString());
-            } catch (IOException e) {
+            } catch (SlackApiException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
@@ -94,7 +94,7 @@ public class Slackbridge implements ModInitializer {
             
             try {
                 sendSlackMessage(textContent);
-            } catch (IOException e) {
+            } catch (SlackApiException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
