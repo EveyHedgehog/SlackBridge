@@ -4,7 +4,7 @@ import com.slack.api.bolt.App;
 import com.slack.api.bolt.AppConfig;
 
 import com.slack.api.bolt.socket_mode.SocketModeApp;
-import com.slack.api.methods.SlackApiException;
+// import com.slack.api.methods.SlackApiException;
 import com.slack.api.model.event.*;
 import com.slack.api.socket_mode.SocketModeClient;
 import net.minecraft.server.MinecraftServer;
@@ -105,7 +105,7 @@ public class SlackApp {
         
     }
 
-    public static void sendChatMessage(String message, String username, String uuid) throws SlackApiException, IOException {
+    public static void sendChatMessage(String message, String username, String uuid) throws IOException {
         app.client().chatPostMessage(r -> r
                 .channel(Slackbridge.CONFIG.relayChannelId)
                 .text(message)
@@ -114,7 +114,7 @@ public class SlackApp {
         );
     }
     
-    public static void sendSlackMessage(String message) throws SlackApiException, IOException {
+    public static void sendSlackMessage(String message) throws IOException {
         app.client().chatPostMessage(r -> r
                 .channel(Slackbridge.CONFIG.relayChannelId)
                 .text(message)
