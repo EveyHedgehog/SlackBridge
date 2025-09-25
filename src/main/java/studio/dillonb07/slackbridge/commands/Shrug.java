@@ -1,7 +1,7 @@
 package studio.dillonb07.slackbridge.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.slack.api.methods.SlackApiException;
+// import com.slack.api.methods.SlackApiException;
 import net.minecraft.command.argument.MessageArgumentType;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SignedMessage;
@@ -48,7 +48,7 @@ public class Shrug {
         String uuid = Objects.requireNonNull(serverCommandSource.getPlayer()).getUuidAsString();
         try {
             SlackApp.sendChatMessage(message, name, uuid);
-        } catch (SlackApiException | IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
