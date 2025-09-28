@@ -1,0 +1,35 @@
+package com.slack.api.methods.response.pins;
+
+import com.slack.api.methods.SlackApiTextResponse;
+import com.slack.api.model.File;
+import com.slack.api.model.Message;
+import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+
+@Data
+public class PinsListResponse implements SlackApiTextResponse {
+
+    private boolean ok;
+    private String warning;
+    private String error;
+    private String needed;
+    private String provided;
+    private transient Map<String, List<String>> httpResponseHeaders;
+
+    private List<MessageItem> items;
+
+    @Data
+    public static class MessageItem {
+
+        private String type;
+        private String channel;
+        private Message message;
+        private File file;
+        private String comment;
+        private String createdBy;
+        private Integer created;
+    }
+
+}
