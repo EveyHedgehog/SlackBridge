@@ -1,6 +1,9 @@
 plugins {
     id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+    id 'java'
+    id 'io.freefair.lombok' version '3.8.4'
 }
 
 version = project.mod_version
