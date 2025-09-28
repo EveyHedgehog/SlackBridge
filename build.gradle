@@ -46,6 +46,8 @@ dependencies {
 	
 	testCompileOnly("org.projectlombok:lombok:1.18.42")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
+
+	implementation("redis.clients:jedis:2.8.0")
     
     // Slack API
 	implementation("com.slack.api:slack-api-client:1.45.4")
